@@ -12,10 +12,12 @@ public class ChatViewHolder extends RecyclerView.ViewHolder {
 
     public ChatViewHolder(@NonNull View itemView) {
         super(itemView);
+
     }
 
     public void setChatDetails(ChatDetails chatDetails){
         this.chatDetails=chatDetails;
         //put details from chat details on the view
+        itemView.setContentDescription((CharSequence) chatDetails);
     }
 }

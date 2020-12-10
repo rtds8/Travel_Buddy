@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -25,14 +24,9 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.chat_window);
         recyclerView = findViewById(R.id.chatRecycler);
 
-
-//        - Setup the RecyclerView
-//        - Set the data to recycler view
-
         ChatRequestAsyncTask task = new ChatRequestAsyncTask(new ChatRequestListener() {
             @Override
             public void onSuccess(String chatResponse) throws Exception {
-                // set data to recycler view
 
                 parseResponse(chatResponse);
             }

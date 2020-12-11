@@ -18,6 +18,11 @@ public class ChatViewHolder extends RecyclerView.ViewHolder {
     public void setChatDetails(ChatDetails chatDetails){
         this.chatDetails=chatDetails;
         //put details from chat details on the view
+
+        //itemView.setContentDescription(chatDetails.getName());
+        //itemView.setContentDescription(chatDetails.getMessage());
+        //itemView.setContentDescription(chatDetails.getTime());
+        //itemView.setContentDescription(chatDetails.toString());
         itemView.setContentDescription((CharSequence) chatDetails);
     }
 }

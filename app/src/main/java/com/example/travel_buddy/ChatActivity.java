@@ -25,8 +25,6 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.chatRecycler);
 
         ChatRequestAsyncTask task = new ChatRequestAsyncTask(new ChatRequestListener() {
-
-
             @Override
             public void onSuccess(ArrayList<ChatDetails> chatResponse) throws Exception {
                 chatDetails.clear();
@@ -39,8 +37,8 @@ public class ChatActivity extends AppCompatActivity {
                 // show error message
             }
         });
-
         task.execute();
+
         this.chatAdapter = new ChatAdapter(this, this.chatDetails);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

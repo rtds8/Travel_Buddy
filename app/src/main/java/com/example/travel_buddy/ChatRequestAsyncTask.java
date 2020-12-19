@@ -2,19 +2,52 @@ package com.example.travel_buddy;
 
 import android.os.AsyncTask;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class ChatRequestAsyncTask extends AsyncTask<Void, Void, Void> {
 
     private ChatRequestListener listener;
 
+    private ArrayList<ChatDetails> chatDetails = new ArrayList<>();
+
+    private String errormsg;
     public static final String API = "https://gmd-507.herokuapp.com/chat";
 
     public ChatRequestAsyncTask(ChatRequestListener listener){
         this.listener=listener;
+    }
+
+    private void parseResponse(String response) throws Exception {
+
+        if (response != null && !response.isEmpty()) {
+            JSONObject responseObject = new JSONObject(response);
+
+            if (responseObject.has("data")) {
+
+                JSONArray chatArray = responseObject.getJSONArray("data");
+                ChatDetails chat = null;
+                if (chatArray.length() > 0) {
+                    for (int i = 0; i < chatArray.length(); i++) {
+
+                        JSONObject chatObject = chatArray.getJSONObject(i);
+                        chat = new ChatDetails(
+                                chatObject.getString("sender_name"),
+                                chatObject.getString("message"),
+                                chatObject.getString("time")
+                        );
+                        chatDetails.add(chat);
+                    }
+
+                }
+            }
+        }
     }
 
     private void networkCall() throws Exception {
@@ -42,7 +75,7 @@ public class ChatRequestAsyncTask extends AsyncTask<Void, Void, Void> {
                 res = bis.read();
             }
 
-            listener.onSuccess(baos.toString());
+            parseResponse(baos.toString());
         } else {
             BufferedInputStream bis = new BufferedInputStream(httpConnection.getErrorStream());
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -53,7 +86,7 @@ public class ChatRequestAsyncTask extends AsyncTask<Void, Void, Void> {
                 res = bis.read();
             }
             // finally return response when reading from server is completed
-            listener.onError(baos.toString());
+            errormsg = baos.toString();
         }
     }
 
@@ -65,5 +98,15 @@ public class ChatRequestAsyncTask extends AsyncTask<Void, Void, Void> {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        try {
+            listener.onSuccess(chatDetails);
+        } catch (Exception e) {
+            listener.onError(errormsg);
+        }
     }
 }

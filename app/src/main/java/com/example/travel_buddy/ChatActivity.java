@@ -25,10 +25,13 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.chatRecycler);
 
         ChatRequestAsyncTask task = new ChatRequestAsyncTask(new ChatRequestListener() {
-            @Override
-            public void onSuccess(String chatResponse) throws Exception {
 
-                parseResponse(chatResponse);
+
+            @Override
+            public void onSuccess(ArrayList<ChatDetails> chatResponse) throws Exception {
+                chatDetails.clear();
+                chatDetails.addAll(chatResponse);
+                chatAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -37,37 +40,11 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        task.execute();
         this.chatAdapter = new ChatAdapter(this, this.chatDetails);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         this.recyclerView.setLayoutManager(layoutManager);
         this.recyclerView.setAdapter(this.chatAdapter);
-    }
-
-    private void parseResponse(String response) throws Exception {
-
-        if(response != null && !response.isEmpty()){
-            JSONObject responseObject = new JSONObject(response);
-
-            if(responseObject.has("data")){
-
-                JSONArray chatArray = responseObject.getJSONArray("data");
-                ChatDetails chat = null;
-                if(chatArray.length() > 0){
-                    for(int i=0; i<chatArray.length();i++){
-
-                        JSONObject chatObject = chatArray.getJSONObject(i);
-                        chat = new ChatDetails(
-                                chatObject.getString("sender_name"),
-                                chatObject.getString("message"),
-                                chatObject.getString("time")
-                        );
-                    }
-                    chatDetails.add(chat);
-                }
-            }
-        }
-
-        this.chatAdapter.notifyDataSetChanged();
     }
 }

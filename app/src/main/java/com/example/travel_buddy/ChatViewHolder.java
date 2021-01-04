@@ -35,5 +35,10 @@ public class ChatViewHolder extends RecyclerView.ViewHolder {
             this.time.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
             this.time.setText(chatDetails.getTime());
         }
+        else{
+            this.name.setText(chatDetails.getName());
+            this.messsage.setText(chatDetails.getMessage());
+            this.time.setText(chatDetails.getTime());
+        }
     }
 }

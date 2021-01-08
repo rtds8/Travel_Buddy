@@ -6,6 +6,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
+
 
 public class ChatViewHolder extends RecyclerView.ViewHolder {
 
@@ -23,10 +25,20 @@ public class ChatViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setChatDetails(ChatDetails chatDetails){
-        this.chatDetails=chatDetails;
+        this.chatDetails = chatDetails;
         //put details from chat details on the view
-        this.name.setText(chatDetails.getName());
-        this.messsage.setText(chatDetails.getMessage());
-        this.time.setText(chatDetails.getTime());
+        if(chatDetails.getName().contentEquals("Ritwik")){
+            this.name.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            this.name.setText(chatDetails.getName());
+            this.messsage.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            this.messsage.setText(chatDetails.getMessage());
+            this.time.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            this.time.setText(chatDetails.getTime());
+        }
+        else{
+            this.name.setText(chatDetails.getName());
+            this.messsage.setText(chatDetails.getMessage());
+            this.time.setText(chatDetails.getTime());
+        }
     }
 }

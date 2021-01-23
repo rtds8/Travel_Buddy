@@ -1,4 +1,4 @@
-package com.example.travel_buddy;
+package com.example.travel_buddy.chat;
 
 import android.os.AsyncTask;
 

@@ -1,4 +1,4 @@
-package com.example.travel_buddy;
+package com.example.travel_buddy.chat;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.SimpleDateFormat;
+import com.example.travel_buddy.R;
 
 
 public class ChatViewHolder extends RecyclerView.ViewHolder {

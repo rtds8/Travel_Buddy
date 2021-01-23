@@ -1,4 +1,4 @@
-package com.example.travel_buddy;
+package com.example.travel_buddy.chat;
 
 public class ChatDetails {
     private String message, time, name;

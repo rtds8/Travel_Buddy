@@ -1,4 +1,4 @@
-package com.example.travel_buddy;
+package com.example.travel_buddy.chat;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.example.travel_buddy.R;
 
 import java.util.ArrayList;
 

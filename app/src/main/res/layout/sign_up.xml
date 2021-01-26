@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.SignUp"
+    android:orientation="vertical"
+    android:background="#f2bc94"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/sign_up_app_logo"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:typeface="serif"
+        android:textAlignment="center"
+        android:text="TB"
+        android:textSize="50sp"
+        android:textColor="#143d59"
+        android:textStyle="italic|bold"
+        android:shadowColor="#fff"
+        android:shadowDx="12"
+        android:shadowDy="12"
+        android:shadowRadius="12"/>
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WELCOME BUDDY !!!"
+        android:layout_marginTop="20dp"
+        android:textSize="24sp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:shadowColor="#143d59"
+        android:shadowRadius="5"
+        android:shadowDy="4"
+        android:shadowDx="4"/>
+
+    <TextView
+        android:id="@+id/sign_up_to_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up to begin your journey"
+        android:textSize="18sp"
+        android:fontFamily="monospace"
+        android:textStyle="bold"/>
+
+</LinearLayout>

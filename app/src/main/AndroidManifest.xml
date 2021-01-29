@@ -25,15 +25,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Travel_Buddy">
-        <activity android:name=".login.SignUp"></activity>
         <activity android:name=".login.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".login.Login"></activity>
+        <activity android:name=".login.SignUp"></activity>
+        <activity android:name=".chat.ChatActivity"></activity>
+
+
     </application>
 
 </manifest>

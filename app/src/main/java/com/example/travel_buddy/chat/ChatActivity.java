@@ -29,6 +29,7 @@ public class ChatActivity extends AppCompatActivity {
                 chatDetails.clear();
                 chatDetails.addAll(chatResponse);
                 chatAdapter.notifyDataSetChanged();
+                recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
             }
 
             @Override

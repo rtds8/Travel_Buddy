@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/send_button"
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:layout_marginStart="300dp"

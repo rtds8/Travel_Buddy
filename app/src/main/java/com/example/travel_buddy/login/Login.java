@@ -5,17 +5,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.travel_buddy.R;
+import com.example.travel_buddy.chat.ChatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Login extends AppCompatActivity {
 
     TextView callSignUp, login;
     TextInputLayout user_name, user_password;
+    //PrefHelper prefHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +54,16 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                /*if(user.equals(prefHelper.getEmail()) && pass.equals(prefHelper.getPassword())){
+                    Intent intent = new Intent(Login.this, ChatActivity.class);
+                    Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                    finish();
+                }
 
+                else{
+                    Toast.makeText(Login.this, "Invalid ID or Password", Toast.LENGTH_SHORT).show();
+                }*/
             }
         });
 

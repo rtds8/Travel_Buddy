@@ -27,8 +27,15 @@ public class PrefHelper {
     public void setUserId(String userId){
         pref.edit().putString("User ID", userId).apply();
     }
+    public void setPassword(String password){pref.edit().putString("Password", password).apply();}
+    public void setName(String user_name){pref.edit().putString("User Name", user_name).apply();}
+    public void setEmail(String email){pref.edit().putString("Email", email).apply();}
+    public void setPhone(String phone){pref.edit().putString("Phone", phone).apply();}
 
-    public String getUserId(){
-        return pref.getString("User ID", null);
-    }
+    public String getUserId(){return pref.getString("User ID", null);}
+    public String getPassword(){ return pref.getString("Password", null); }
+    public String getEmail(){return pref.getString("Email", null); }
+    public String getName(){return pref.getString("User Name", null); }
+    public String getPhone(){return pref.getString("Phone", null); }
+
 }

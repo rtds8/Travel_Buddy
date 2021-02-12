@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.example.travel_buddy.R;
 
@@ -15,6 +16,7 @@ public class ChatActivity extends AppCompatActivity {
     private ArrayList<ChatDetails> chatDetails = new ArrayList<>();
     private RecyclerView recyclerView;
     private ChatAdapter chatAdapter;
+    private ImageView profile;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class ChatActivity extends AppCompatActivity {
 
         setContentView(R.layout.chat_window);
         recyclerView = findViewById(R.id.chatRecycler);
+        profile = findViewById(R.id.profile_pic);
+        profile.setImageResource(R.drawable.ic_baseline_dp);
 
         ChatRequestAsyncTask task = new ChatRequestAsyncTask(new ChatRequestListener() {
             @Override
